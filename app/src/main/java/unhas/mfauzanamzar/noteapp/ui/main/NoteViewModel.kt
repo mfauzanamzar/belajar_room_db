@@ -11,6 +11,7 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
 
     private var noteRepository = NoteRepository(application)
     private var notes: LiveData<List<Note>>? = noteRepository.getNotes()
+    private lateinit var noteViewModel: NoteViewModel
 
     fun insertNote(note: Note) {
         noteRepository.insert(note)
@@ -27,5 +28,6 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
     fun updateNote(note: Note) {
         noteRepository.update(note)
     }
+
 
 }
